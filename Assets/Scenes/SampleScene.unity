@@ -399,7 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0185d6309bfc2046998dfa9d28d6b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 1
+  _sensitivity: 20000
+  _distanceMultiplier: 1
   _bodyMeshFilter: {fileID: 728928457}
   _bodyTrans: {fileID: 728928458}
 --- !u!4 &989364948

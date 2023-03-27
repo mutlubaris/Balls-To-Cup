@@ -7,6 +7,7 @@ using UnityEngine;
 public class CupController : MonoBehaviour
 {
     [SerializeField] private float _sensitivity = 1;
+    [SerializeField] private float _distanceMultiplier = 1;
     [SerializeField] private MeshFilter _bodyMeshFilter;
     [SerializeField] private Transform _bodyTrans;
 
@@ -23,7 +24,7 @@ public class CupController : MonoBehaviour
         {
             Vector3 vectorToPoint = _previousMousePos - Camera.main.WorldToScreenPoint(transform.position);
             Vector3 normalVector = Input.mousePosition - _previousMousePos;
-            transform.Rotate(new Vector3(0, 0, Vector3.Cross(vectorToPoint, normalVector).z) * Time.deltaTime * _sensitivity);
+            transform.Rotate(new Vector3(0, 0, Vector3.Cross(vectorToPoint.normalized / Mathf.Pow(vectorToPoint.magnitude, _distanceMultiplier), normalVector).z) * Time.deltaTime * _sensitivity);
             _previousMousePos = Input.mousePosition;
         }
     }
