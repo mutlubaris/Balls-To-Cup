@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CupTrigger : MonoBehaviour
+public class CupTriggerController : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI quantityText;
     
@@ -15,6 +15,7 @@ public class CupTrigger : MonoBehaviour
         if (other.transform.tag == "Ball" && !collectedBallTransforms.Contains(other.transform)) 
         { 
             collectedBallTransforms.Add(other.transform);
+            other.GetComponentInParent<BallStatusTracker>().UpdateBallStatus(other.transform);
             collectedBallQuantity++;
             quantityText.SetText(collectedBallQuantity.ToString() + " / 20");
         }
