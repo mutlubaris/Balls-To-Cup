@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallManager : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class BallManager : MonoBehaviour
         foreach (Transform childTransform in childTransforms)
         {
             if (childTransform.tag == "Ball") BallTransforms.Add(childTransform);
-            int ballTypeIndex = Random.Range(0, BallTransforms.Count);
-            childTransform.GetComponent<Renderer>().material = ballTypes[ballTypeIndex].ColorMaterial;
+            int ballTypeIndex = Random.Range(0, ballTypes.Length);
+            childTransform.GetComponent<MeshRenderer>().material = ballTypes[ballTypeIndex].ColorMaterial;
             childTransform.GetComponent<Collider>().material = ballTypes[ballTypeIndex].PhysicMaterial;
         }
     }
@@ -25,7 +26,7 @@ public class BallManager : MonoBehaviour
         BallTransforms.Remove(ballTransform);
         if (BallTransforms.Count == 0 ) 
         {
-            print("GG");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
