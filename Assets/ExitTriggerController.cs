@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ExitTriggerController : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Ball" && !collectedBallTransforms.Contains(other.transform))
+        if (other.transform.tag == "Ball")
         {
-            collectedBallTransforms.Add(other.transform);
-            collectedBallQuantity++;
-            quantityText.SetText(collectedBallQuantity.ToString() + " / 20");
+            var ballStatusTracker = other.GetComponentInParent<BallStatusTracker>();
+            if (ballStatusTracker.BallTransforms.Contains(other.transform)) 
+            {
+                ballStatusTracker.UpdateBallStatus(other.transform);
+            }
         }
     }
 }
