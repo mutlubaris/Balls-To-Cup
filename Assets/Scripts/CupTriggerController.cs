@@ -15,7 +15,7 @@ public class CupTriggerController : MonoBehaviour
         if (other.transform.tag == "Ball" && !collectedBallTransforms.Contains(other.transform)) 
         { 
             collectedBallTransforms.Add(other.transform);
-            other.GetComponentInParent<BallStatusTracker>().UpdateBallStatus(other.transform);
+            other.GetComponentInParent<BallManager>().UpdateBallStatus(other.transform);
             collectedBallQuantity++;
             quantityText.SetText(collectedBallQuantity.ToString() + " / 20");
         }

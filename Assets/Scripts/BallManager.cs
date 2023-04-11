@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallStatusTracker : MonoBehaviour
+public class BallManager : MonoBehaviour
 {
-    public List<Transform> BallTransforms= new List<Transform>();
+    [SerializeField] private BallType[] ballTypes;
+
+    [HideInInspector] public List<Transform> BallTransforms= new List<Transform>();
 
     private void Start()
     {
@@ -12,6 +14,9 @@ public class BallStatusTracker : MonoBehaviour
         foreach (Transform childTransform in childTransforms)
         {
             if (childTransform.tag == "Ball") BallTransforms.Add(childTransform);
+            int ballTypeIndex = Random.Range(0, BallTransforms.Count);
+            childTransform.GetComponent<Renderer>().material = ballTypes[ballTypeIndex].ColorMaterial;
+            childTransform.GetComponent<Collider>().material = ballTypes[ballTypeIndex].PhysicMaterial;
         }
     }
 
