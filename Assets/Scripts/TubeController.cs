@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 
-public class CupController : MonoBehaviour
+public class TubeController : MonoBehaviour
 {
     [SerializeField] private float _sensitivity = 1;
     [SerializeField] private float _distanceMultiplier = 1;
