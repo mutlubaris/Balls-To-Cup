@@ -67,6 +67,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 290bcb19e1e01ec4a9aeb51ee93d4ff7, type: 2}
   - {fileID: 11400000, guid: c1282f6082ce8e949b032d43817d1cb6, type: 2}
   - {fileID: 11400000, guid: 92cf8ee37f593734ca8eb4431bd47031, type: 2}
+  loadNextSceneDelay: 1
   BallTransforms: []
 --- !u!1001 &5232101742949501361
 PrefabInstance:
