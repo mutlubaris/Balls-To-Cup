@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33befc18beed7124697b4b084c0617c6, type: 3}
   m_Name: RegularBall
   m_EditorClassIdentifier: 
-  ColorMaterial: {fileID: 2100000, guid: de63d73815554e542b27f124621b9a40, type: 2}
-  PhysicMaterial: {fileID: 13400000, guid: 6f3039a864e43304cbe95c4476cbd8ad, type: 2}
+  colorMaterial: {fileID: 2100000, guid: de63d73815554e542b27f124621b9a40, type: 2}
+  physicMaterial: {fileID: 13400000, guid: 6f3039a864e43304cbe95c4476cbd8ad, type: 2}

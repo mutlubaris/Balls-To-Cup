@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33befc18beed7124697b4b084c0617c6, type: 3}
   m_Name: BouncyBall
   m_EditorClassIdentifier: 
-  ColorMaterial: {fileID: 2100000, guid: f42a57d93512a904cbfe9fab03de13bb, type: 2}
-  PhysicMaterial: {fileID: 13400000, guid: 62ba260cad1ed1046a1bb6216b7fc44c, type: 2}
+  colorMaterial: {fileID: 2100000, guid: f42a57d93512a904cbfe9fab03de13bb, type: 2}
+  physicMaterial: {fileID: 13400000, guid: 62ba260cad1ed1046a1bb6216b7fc44c, type: 2}

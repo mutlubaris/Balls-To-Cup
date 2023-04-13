@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33befc18beed7124697b4b084c0617c6, type: 3}
   m_Name: SlipperyBall
   m_EditorClassIdentifier: 
-  ColorMaterial: {fileID: 2100000, guid: 4b28e6662655cad4eb6f1af23815eaa7, type: 2}
-  PhysicMaterial: {fileID: 13400000, guid: a12829bba309b884bbf23313aa10806b, type: 2}
+  colorMaterial: {fileID: 2100000, guid: 4b28e6662655cad4eb6f1af23815eaa7, type: 2}
+  physicMaterial: {fileID: 13400000, guid: a12829bba309b884bbf23313aa10806b, type: 2}
