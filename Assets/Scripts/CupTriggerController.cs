@@ -44,9 +44,8 @@ public class CupTriggerController : MonoBehaviour
         yield return new WaitForSeconds(loadNextSceneDelay);
         if (numberOfBalls == collectedBallTransforms.Count)
         {
-            if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings) SceneManager.LoadScene(0);
-            else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            LevelManager.LoadNextLevel();
         }
-        else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        else LevelManager.ReloadLevel();
     }
 }

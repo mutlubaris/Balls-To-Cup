@@ -7,7 +7,7 @@ public class BallManager : MonoBehaviour
 {
     [SerializeField] private BallType[] ballTypes;
 
-    [HideInInspector] public List<Transform> BallTransforms= new List<Transform>();
+    [HideInInspector] public List<Transform> ActiveBallTransforms= new List<Transform>();
 
     private int numberOfBalls;
 
@@ -16,18 +16,18 @@ public class BallManager : MonoBehaviour
         var childTransforms = GetComponentInChildren<Transform>();
         foreach (Transform childTransform in childTransforms)
         {
-            if (childTransform.tag == "Ball") BallTransforms.Add(childTransform);
+            if (childTransform.tag == "Ball") ActiveBallTransforms.Add(childTransform);
             int ballTypeIndex = Random.Range(0, ballTypes.Length);
             childTransform.GetComponent<MeshRenderer>().material = ballTypes[ballTypeIndex].ColorMaterial;
             childTransform.GetComponent<Collider>().material = ballTypes[ballTypeIndex].PhysicMaterial;
         }
-        numberOfBalls = BallTransforms.Count;
+        numberOfBalls = ActiveBallTransforms.Count;
     }
 
     public void UpdateBallStatus(Transform ballTransform)
     {
-        BallTransforms.Remove(ballTransform);
-        if (BallTransforms.Count == 0 ) 
+        ActiveBallTransforms.Remove(ballTransform);
+        if (ActiveBallTransforms.Count == 0) 
         {
             EventManager.OnAllBallsThrown.Invoke(numberOfBalls);
         }
