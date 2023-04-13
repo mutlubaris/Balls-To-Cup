@@ -7,7 +7,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487715483025175644}
-  m_Material: {fileID: 13400000, guid: 2d5fa50533cdeff48a0346e22c994eec, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcd0cbb51b7fb546ad8f143166b57b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quantityText: {fileID: 1757534739681786523}
+  _quantityText: {fileID: 1757534739681786523}
+  _loadNextSceneDelay: 1
 --- !u!1 &1757534739681786521
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,8 +179,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291777435
+  m_fontColor: {r: 0.61315846, g: 0.32529372, b: 0.8113208, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

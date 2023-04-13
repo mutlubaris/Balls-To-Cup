@@ -10,7 +10,7 @@ public class CupTriggerController : MonoBehaviour
     [SerializeField] private float _loadNextSceneDelay = 1;
     
     private List<Transform> _collectedBallTransforms = new List<Transform>();
-    private int _ollectedBallQuantity;
+    private int _collectedBallQuantity;
 
     private void OnEnable()
     {
@@ -29,8 +29,8 @@ public class CupTriggerController : MonoBehaviour
         { 
             _collectedBallTransforms.Add(other.transform);
             other.GetComponentInParent<BallManager>().UpdateBallStatus(other.transform);
-            _ollectedBallQuantity++;
-            _quantityText.SetText(_ollectedBallQuantity.ToString() + " / 20");
+            _collectedBallQuantity++;
+            _quantityText.SetText(_collectedBallQuantity.ToString() + " / 20");
         }
     }
 

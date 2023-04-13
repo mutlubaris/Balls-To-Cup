@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c62508ec13fc5246b795760228f08ff, type: 3}
   m_Name: Sensitivity
   m_EditorClassIdentifier: 
-  rotateSensitivity: 1
-  distanceSensitivity: 1
-  maxTorque: 10
+  rotationSensitivity: 3
+  maxRotationSpeed: 0.1
