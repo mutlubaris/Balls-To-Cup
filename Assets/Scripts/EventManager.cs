@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public static class EventManager
 {
-    public static BallThrowEvent OnAllBallsThrown = new BallThrowEvent();
+    public static BallThrowEvent onAllBallsThrown = new BallThrowEvent();
 
     public class BallThrowEvent : UnityEvent<int> { }
 }

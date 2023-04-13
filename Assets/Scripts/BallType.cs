@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BallType", menuName = "BallType")]
 public class BallType : ScriptableObject
 {
-    public Material ColorMaterial;
-    public PhysicMaterial PhysicMaterial;
+    public Material colorMaterial;
+    public PhysicMaterial physicMaterial;
 }

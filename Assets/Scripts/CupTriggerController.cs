@@ -6,31 +6,31 @@ using UnityEngine.SceneManagement;
 
 public class CupTriggerController : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI quantityText;
-    [SerializeField] private float loadNextSceneDelay = 1;
+    [SerializeField] private TextMeshProUGUI _quantityText;
+    [SerializeField] private float _loadNextSceneDelay = 1;
     
-    private List<Transform> collectedBallTransforms = new List<Transform>();
-    private int collectedBallQuantity;
+    private List<Transform> _collectedBallTransforms = new List<Transform>();
+    private int _ollectedBallQuantity;
 
     private void OnEnable()
     {
-        EventManager.OnAllBallsThrown.AddListener(HandleLevelFinish);
+        EventManager.onAllBallsThrown.AddListener(HandleLevelFinish);
     }
 
     private void OnDisable()
     {
-        EventManager.OnAllBallsThrown.RemoveListener(HandleLevelFinish);
+        EventManager.onAllBallsThrown.RemoveListener(HandleLevelFinish);
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "Ball" && !collectedBallTransforms.Contains(other.transform)) 
+        if (other.transform.tag == "Ball" && !_collectedBallTransforms.Contains(other.transform)) 
         { 
-            collectedBallTransforms.Add(other.transform);
+            _collectedBallTransforms.Add(other.transform);
             other.GetComponentInParent<BallManager>().UpdateBallStatus(other.transform);
-            collectedBallQuantity++;
-            quantityText.SetText(collectedBallQuantity.ToString() + " / 20");
+            _ollectedBallQuantity++;
+            _quantityText.SetText(_ollectedBallQuantity.ToString() + " / 20");
         }
     }
 
@@ -41,8 +41,8 @@ public class CupTriggerController : MonoBehaviour
 
     private IEnumerator LoadNextSceneCo(int numberOfBalls)
     {
-        yield return new WaitForSeconds(loadNextSceneDelay);
-        if (numberOfBalls == collectedBallTransforms.Count)
+        yield return new WaitForSeconds(_loadNextSceneDelay);
+        if (numberOfBalls == _collectedBallTransforms.Count)
         {
             LevelManager.LoadNextLevel();
         }

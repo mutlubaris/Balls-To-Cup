@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BallManager : MonoBehaviour
 {
-    [SerializeField] private BallType[] ballTypes;
+    [SerializeField] private BallType[] _ballTypes;
 
-    [HideInInspector] public List<Transform> ActiveBallTransforms= new List<Transform>();
+    [HideInInspector] public List<Transform> activeBallTransforms= new List<Transform>();
 
     private int numberOfBalls;
 
@@ -16,20 +16,20 @@ public class BallManager : MonoBehaviour
         var childTransforms = GetComponentInChildren<Transform>();
         foreach (Transform childTransform in childTransforms)
         {
-            if (childTransform.tag == "Ball") ActiveBallTransforms.Add(childTransform);
-            int ballTypeIndex = Random.Range(0, ballTypes.Length);
-            childTransform.GetComponent<MeshRenderer>().material = ballTypes[ballTypeIndex].ColorMaterial;
-            childTransform.GetComponent<Collider>().material = ballTypes[ballTypeIndex].PhysicMaterial;
+            if (childTransform.tag == "Ball") activeBallTransforms.Add(childTransform);
+            int ballTypeIndex = Random.Range(0, _ballTypes.Length);
+            childTransform.GetComponent<MeshRenderer>().material = _ballTypes[ballTypeIndex].colorMaterial;
+            childTransform.GetComponent<Collider>().material = _ballTypes[ballTypeIndex].physicMaterial;
         }
-        numberOfBalls = ActiveBallTransforms.Count;
+        numberOfBalls = activeBallTransforms.Count;
     }
 
     public void UpdateBallStatus(Transform ballTransform)
     {
-        ActiveBallTransforms.Remove(ballTransform);
-        if (ActiveBallTransforms.Count == 0) 
+        activeBallTransforms.Remove(ballTransform);
+        if (activeBallTransforms.Count == 0) 
         {
-            EventManager.OnAllBallsThrown.Invoke(numberOfBalls);
+            EventManager.onAllBallsThrown.Invoke(numberOfBalls);
         }
     }
 }

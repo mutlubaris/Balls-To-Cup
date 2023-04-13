@@ -9,7 +9,7 @@ public class ExitTriggerController : MonoBehaviour
         if (other.transform.tag == "Ball")
         {
             var ballStatusTracker = other.GetComponentInParent<BallManager>();
-            if (ballStatusTracker.ActiveBallTransforms.Contains(other.transform)) 
+            if (ballStatusTracker.activeBallTransforms.Contains(other.transform)) 
             {
                 ballStatusTracker.UpdateBallStatus(other.transform);
             }

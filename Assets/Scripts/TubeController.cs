@@ -6,16 +6,14 @@ using UnityEngine;
 
 public class TubeController : MonoBehaviour
 {
-    [SerializeField] private float _sensitivity = 1;
-    [SerializeField] private float _distanceMultiplier = 1;
-    [SerializeField] private float _maxTorque = 10;
+    [SerializeField] private SensitivityController _sensitivityController;
 
     private Vector3 _previousMousePos;
-    private Rigidbody rigid;
+    private Rigidbody _rigid;
 
     private void Start()
     {
-        rigid = GetComponentInChildren<Rigidbody>();
+        _rigid = GetComponentInChildren<Rigidbody>();
     }
 
     void Update()
@@ -29,7 +27,11 @@ public class TubeController : MonoBehaviour
         {
             Vector3 vectorToPoint = _previousMousePos - Camera.main.WorldToScreenPoint(transform.position);
             Vector3 normalVector = Input.mousePosition - _previousMousePos;
-            rigid.MoveRotation(rigid.rotation * Quaternion.Euler(new Vector3(0, 0, Mathf.Clamp(-Vector3.Cross(vectorToPoint.normalized / Mathf.Pow(vectorToPoint.magnitude, _distanceMultiplier), normalVector).z, -_maxTorque, _maxTorque)) * Time.deltaTime * _sensitivity));
+
+            _rigid.MoveRotation(_rigid.rotation * Quaternion.Euler(new Vector3(0, 0, Mathf.Clamp(-Vector3.Cross(vectorToPoint.normalized / 
+                Mathf.Pow(vectorToPoint.magnitude, _sensitivityController.distanceSensitivity), normalVector).z, -_sensitivityController.maxTorque, _sensitivityController.maxTorque))
+                * Time.deltaTime * _sensitivityController.rotateSensitivity));
+
             _previousMousePos = Input.mousePosition;
         }
     }
